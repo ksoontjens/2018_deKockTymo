@@ -26,11 +26,11 @@ import org.havi.ui.event.HBackgroundImageListener;
 
 public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListener, ResourceClient {
     HScene scene;
-    HStaticText text1 = new HStaticText("Hotel Television Service", 50, 20, 620, 100);
-    HTextButton button1  = new HTextButton("General information",50,440,300,50);
-    HTextButton button2  = new HTextButton("Serving times",50,500,300,50);
-    HTextButton button3  = new HTextButton("Order breakfast and drinks",400,440,300,50);
-    HTextButton button4  = new HTextButton("Call cleaning services",400,500,300,50);
+    HStaticText textTitle = new HStaticText("Hotel Television Service", 50, 20, 620, 100);
+    HTextButton buttonGeneralInfo  = new HTextButton("General information",50,440,300,50);
+    HTextButton buttonServingTimes  = new HTextButton("Serving times",50,500,300,50);
+    HTextButton buttonOrderBreakfastDrinks  = new HTextButton("Order breakfast and drinks",400,440,300,50);
+    HTextButton buttonServices  = new HTextButton("Call cleaning services",400,500,300,50);
     HTextButton buttonReturn  = new HTextButton("Back",50,500,100,50); 
     HStaticText text2 = new HStaticText("Welcome to the Grand Hiat Hotel \n \n To access television please contact the lobby, \n however, our information channel is available. \n \n If you have any other problems, \n  do not hesitate to contact the lobby.",50, 150, 620, 250);
     HStaticText text3 = new HStaticText("Breakfast is served from 7:30am until 10:30am \n \n Our restaurants open at 11:30am, \n they will continue serving lunch until 4:00pm  \n At 4pm the lunch menu will be changed for a dinner menu. \n Our restaurants close at 11:30pm.",50, 150, 620, 200);
@@ -50,9 +50,9 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
     double priceDrinks = 1.70;
     double priceBreakfast = 2.30;
     
-    HTextButton buttonCleaning1 = new HTextButton("Fresh sheets and towels",400, 260, 300, 50);
-    HTextButton buttonCleaning2 = new HTextButton("Light cleaning",400, 320, 300, 50);
-    HTextButton buttonCleaning3 = new HTextButton("Full cleaning",400, 380, 300, 50);
+    HTextButton buttonService1 = new HTextButton("Fresh sheets and towels",400, 260, 300, 50);
+    HTextButton buttonService2 = new HTextButton("Light cleaning",400, 320, 300, 50);
+    HTextButton buttonService3 = new HTextButton("Full cleaning",400, 380, 300, 50);
     HBackgroundImage image = new HBackgroundImage("hotel.jpg");
     HStillImageBackgroundConfiguration hsbconfig;
     
@@ -77,61 +77,61 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
       
       scene = HSceneFactory.getInstance().getDefaultHScene();
       
-      text1.setBackgroundMode(HVisible.BACKGROUND_FILL);
-      text1.setBackground(new DVBColor(91, 68, 62, 255));
-      text1.setForeground(new DVBColor(0, 0, 0, 255));
-      scene.add(text1);
+      textTitle.setBackgroundMode(HVisible.BACKGROUND_FILL);
+      textTitle.setBackground(new DVBColor(91, 68, 62, 255));
+      textTitle.setForeground(new DVBColor(0, 0, 0, 255));
+      scene.add(textTitle);
       
-      button1.setBackgroundMode(HVisible.BACKGROUND_FILL);
-      button1.setBackground(Color.GREEN);
-      scene.add(button1);
+      buttonGeneralInfo.setBackgroundMode(HVisible.BACKGROUND_FILL);
+      buttonGeneralInfo.setBackground(Color.GREEN);
+      scene.add(buttonGeneralInfo);
       
-      button2.setBackgroundMode(HVisible.BACKGROUND_FILL);
-      button2.setBackground(Color.GREEN);
-      scene.add(button2);
+      buttonServingTimes.setBackgroundMode(HVisible.BACKGROUND_FILL);
+      buttonServingTimes.setBackground(Color.GREEN);
+      scene.add(buttonServingTimes);
       
-      button3.setBackgroundMode(HVisible.BACKGROUND_FILL);
-      button3.setBackground(Color.GREEN);
-      scene.add(button3);
+      buttonOrderBreakfastDrinks.setBackgroundMode(HVisible.BACKGROUND_FILL);
+      buttonOrderBreakfastDrinks.setBackground(Color.GREEN);
+      scene.add(buttonOrderBreakfastDrinks);
       
-      button4.setBackgroundMode(HVisible.BACKGROUND_FILL);
-      button4.setBackground(Color.GREEN);
-      scene.add(button4);
+      buttonServices.setBackgroundMode(HVisible.BACKGROUND_FILL);
+      buttonServices.setBackground(Color.GREEN);
+      scene.add(buttonServices);
       
-      button1.setFocusTraversal(button2,button2,button3,button3);
-      button2.setFocusTraversal(button1,button1,button4,button4);
-      button3.setFocusTraversal(button4,button4,button1,button1);
-      button4.setFocusTraversal(button3,button3,button2,button2);
+      buttonGeneralInfo.setFocusTraversal(buttonServingTimes,buttonServingTimes,buttonOrderBreakfastDrinks,buttonOrderBreakfastDrinks);
+      buttonServingTimes.setFocusTraversal(buttonGeneralInfo,buttonGeneralInfo,buttonServices,buttonServices);
+      buttonOrderBreakfastDrinks.setFocusTraversal(buttonServices,buttonServices,buttonGeneralInfo,buttonGeneralInfo);
+      buttonServices.setFocusTraversal(buttonOrderBreakfastDrinks,buttonOrderBreakfastDrinks,buttonServingTimes,buttonServingTimes);
       
-      button1.setActionCommand("button1");
-      button2.setActionCommand("button2");
-      button3.setActionCommand("button3");
-      button4.setActionCommand("button4");
+      buttonGeneralInfo.setActionCommand("buttonGeneralInfo");
+      buttonServingTimes.setActionCommand("buttonServingTimes");
+      buttonOrderBreakfastDrinks.setActionCommand("buttonOrderBreakfastDrinks");
+      buttonServices.setActionCommand("buttonServices");
       buttonReturn.setActionCommand("buttonReturn");
       buttonBreakfastSubstract.setActionCommand("buttonBreakfastSubstract");
       buttonBreakfastAdd.setActionCommand("buttonBreakfastAdd");
       buttonDrinksSubstract.setActionCommand("buttonDrinksSubstract");
       buttonDrinksAdd.setActionCommand("buttonDrinksAdd");
       buttonOrder.setActionCommand("buttonOrder");
-      buttonCleaning1.setActionCommand("buttonCleaning1");
-      buttonCleaning2.setActionCommand("buttonCleaning2");
-      buttonCleaning3.setActionCommand("buttonCleaning3");
+      buttonService1.setActionCommand("buttonService1");
+      buttonService2.setActionCommand("buttonService2");
+      buttonService3.setActionCommand("buttonService3");
       
-      button1.addHActionListener(this);
-      button2.addHActionListener(this);
-      button3.addHActionListener(this);
-      button4.addHActionListener(this);
+      buttonGeneralInfo.addHActionListener(this);
+      buttonServingTimes.addHActionListener(this);
+      buttonOrderBreakfastDrinks.addHActionListener(this);
+      buttonServices.addHActionListener(this);
       buttonReturn.addHActionListener(this);
       buttonBreakfastSubstract.addHActionListener(this);
       buttonBreakfastAdd.addHActionListener(this);
       buttonDrinksSubstract.addHActionListener(this);
       buttonDrinksAdd.addHActionListener(this);
       buttonOrder.addHActionListener(this);
-      buttonCleaning1.addHActionListener(this);
-      buttonCleaning2.addHActionListener(this);
-      buttonCleaning3.addHActionListener(this);
+      buttonService1.addHActionListener(this);
+      buttonService2.addHActionListener(this);
+      buttonService3.addHActionListener(this);
       
-      button1.requestFocus();
+      buttonGeneralInfo.requestFocus();
     }
 
 
@@ -152,11 +152,11 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
     public void actionPerformed(ActionEvent arg0) {
         System.out.println(arg0.getActionCommand());
           
-        if(arg0.getActionCommand().equals("button1")) { 
-            scene.remove(button1);
-            scene.remove(button2);
-            scene.remove(button3);
-            scene.remove(button4);
+        if(arg0.getActionCommand().equals("buttonGeneralInfo")) { 
+            scene.remove(buttonGeneralInfo);
+            scene.remove(buttonServingTimes);
+            scene.remove(buttonOrderBreakfastDrinks);
+            scene.remove(buttonServices);
             scene.remove(textBreakfast);
             scene.remove(textAmountOfFood);
             scene.remove(buttonBreakfastSubstract);
@@ -167,9 +167,9 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             scene.remove(buttonDrinksAdd);
             scene.remove(buttonOrder);
             scene.remove(textOrder);
-            scene.remove(buttonCleaning1);
-            scene.remove(buttonCleaning2);
-            scene.remove(buttonCleaning3);
+            scene.remove(buttonService1);
+            scene.remove(buttonService2);
+            scene.remove(buttonService3);
             
             buttonReturn.setBackgroundMode(HVisible.BACKGROUND_FILL);
             buttonReturn.setBackground(Color.ORANGE);
@@ -184,11 +184,11 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             scene.repaint();
         }
         
-        if(arg0.getActionCommand().equals("button2")) {
-            scene.remove(button1);
-            scene.remove(button2);
-            scene.remove(button3);
-            scene.remove(button4);
+        if(arg0.getActionCommand().equals("buttonServingTimes")) {
+            scene.remove(buttonGeneralInfo);
+            scene.remove(buttonServingTimes);
+            scene.remove(buttonOrderBreakfastDrinks);
+            scene.remove(buttonServices);
             scene.remove(textBreakfast);
             scene.remove(textAmountOfFood);
             scene.remove(buttonBreakfastSubstract);
@@ -199,9 +199,9 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             scene.remove(buttonDrinksAdd);
             scene.remove(buttonOrder);
             scene.remove(textOrder);
-            scene.remove(buttonCleaning1);
-            scene.remove(buttonCleaning2);
-            scene.remove(buttonCleaning3);
+            scene.remove(buttonService1);
+            scene.remove(buttonService2);
+            scene.remove(buttonService3);
             
             buttonReturn.setBackgroundMode(HVisible.BACKGROUND_FILL);
             buttonReturn.setBackground(Color.ORANGE);
@@ -216,11 +216,11 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             scene.repaint();
         }
         
-        if(arg0.getActionCommand().equals("button3")) {
+        if(arg0.getActionCommand().equals("buttonOrderBreakfastDrinks")) {
             scene.remove(textOrder);
-            scene.remove(buttonCleaning1);
-            scene.remove(buttonCleaning2);
-            scene.remove(buttonCleaning3);
+            scene.remove(buttonService1);
+            scene.remove(buttonService2);
+            scene.remove(buttonService3);
             
             textBreakfast.setBackgroundMode(HVisible.BACKGROUND_FILL);
             textBreakfast.setBackground(new DVBColor(91, 68, 62, 255));
@@ -264,13 +264,13 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             
             buttonBreakfastSubstract.setFocusTraversal(null,buttonDrinksSubstract,buttonBreakfastAdd,buttonBreakfastAdd);
             buttonBreakfastAdd.setFocusTraversal(null,buttonDrinksAdd,buttonBreakfastSubstract,buttonBreakfastSubstract);
-            buttonDrinksSubstract.setFocusTraversal(buttonBreakfastSubstract,button1,buttonOrder,buttonDrinksAdd);
-            buttonDrinksAdd.setFocusTraversal(buttonBreakfastAdd,button3,buttonDrinksSubstract,buttonOrder);
-            buttonOrder.setFocusTraversal(null, button3, buttonDrinksAdd, buttonDrinksSubstract);
-            button1.setFocusTraversal(buttonDrinksSubstract,button2,button3,button3);
-            button2.setFocusTraversal(button1,button1,button4,button4);
-            button3.setFocusTraversal(buttonDrinksAdd,button4,button1,button1);
-            button4.setFocusTraversal(button3,button3,button2,button2);
+            buttonDrinksSubstract.setFocusTraversal(buttonBreakfastSubstract,buttonGeneralInfo,buttonOrder,buttonDrinksAdd);
+            buttonDrinksAdd.setFocusTraversal(buttonBreakfastAdd,buttonOrderBreakfastDrinks,buttonDrinksSubstract,buttonOrder);
+            buttonOrder.setFocusTraversal(null, buttonOrderBreakfastDrinks, buttonDrinksAdd, buttonDrinksSubstract);
+            buttonGeneralInfo.setFocusTraversal(buttonDrinksSubstract,buttonServingTimes,buttonOrderBreakfastDrinks,buttonOrderBreakfastDrinks);
+            buttonServingTimes.setFocusTraversal(buttonGeneralInfo,buttonGeneralInfo,buttonServices,buttonServices);
+            buttonOrderBreakfastDrinks.setFocusTraversal(buttonDrinksAdd,buttonServices,buttonGeneralInfo,buttonGeneralInfo);
+            buttonServices.setFocusTraversal(buttonOrderBreakfastDrinks,buttonOrderBreakfastDrinks,buttonServingTimes,buttonServingTimes);
             
             buttonBreakfastSubstract.requestFocus();
             scene.repaint();
@@ -299,7 +299,7 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             totalPrice += priceDrinks;
             textAmountOfDrinks.setTextContent(Integer.toString(drinks), HVisible.NORMAL_STATE);
         }
-        if(arg0.getActionCommand().equals("button4")) { 
+        if(arg0.getActionCommand().equals("buttonServices")) { 
             scene.remove(textBreakfast);
             scene.remove(textAmountOfFood);
             scene.remove(buttonBreakfastSubstract);
@@ -311,36 +311,36 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             scene.remove(buttonOrder);
             scene.remove(textOrder);
             
-            buttonCleaning1.setBackgroundMode(HVisible.BACKGROUND_FILL);
-            buttonCleaning1.setBackground(new DVBColor(91, 68, 62, 255));
-            buttonCleaning1.setForeground(Color.BLACK);
-            scene.add(buttonCleaning1);
+            buttonService1.setBackgroundMode(HVisible.BACKGROUND_FILL);
+            buttonService1.setBackground(new DVBColor(91, 68, 62, 255));
+            buttonService1.setForeground(Color.BLACK);
+            scene.add(buttonService1);
             
-            buttonCleaning2.setBackgroundMode(HVisible.BACKGROUND_FILL);
-            buttonCleaning2.setBackground(new DVBColor(91, 68, 62, 255));
-            buttonCleaning2.setForeground(Color.BLACK);
-            scene.add(buttonCleaning2);
+            buttonService2.setBackgroundMode(HVisible.BACKGROUND_FILL);
+            buttonService2.setBackground(new DVBColor(91, 68, 62, 255));
+            buttonService2.setForeground(Color.BLACK);
+            scene.add(buttonService2);
             
-            buttonCleaning3.setBackgroundMode(HVisible.BACKGROUND_FILL);
-            buttonCleaning3.setBackground(new DVBColor(91, 68, 62, 255));
-            buttonCleaning3.setForeground(Color.BLACK);
-            scene.add(buttonCleaning3);
+            buttonService3.setBackgroundMode(HVisible.BACKGROUND_FILL);
+            buttonService3.setBackground(new DVBColor(91, 68, 62, 255));
+            buttonService3.setForeground(Color.BLACK);
+            scene.add(buttonService3);
             
-            buttonCleaning1.setFocusTraversal(button4,buttonCleaning2,null,null);
-            buttonCleaning2.setFocusTraversal(buttonCleaning1,buttonCleaning3,null,null);
-            buttonCleaning3.setFocusTraversal(buttonCleaning2,button3,null,null);
-            button1.setFocusTraversal(buttonCleaning3,button2,button3,button3);
-            button2.setFocusTraversal(button1,button1,button4,button4);
-            button3.setFocusTraversal(buttonCleaning3,button4,button1,button1);
-            button4.setFocusTraversal(button3,buttonCleaning1,button2,button2);
+            buttonService1.setFocusTraversal(buttonServices,buttonService2,null,null);
+            buttonService2.setFocusTraversal(buttonService1,buttonService3,null,null);
+            buttonService3.setFocusTraversal(buttonService2,buttonOrderBreakfastDrinks,null,null);
+            buttonGeneralInfo.setFocusTraversal(buttonService3,buttonServingTimes,buttonOrderBreakfastDrinks,buttonOrderBreakfastDrinks);
+            buttonServingTimes.setFocusTraversal(buttonGeneralInfo,buttonGeneralInfo,buttonServices,buttonServices);
+            buttonOrderBreakfastDrinks.setFocusTraversal(buttonService3,buttonServices,buttonGeneralInfo,buttonGeneralInfo);
+            buttonServices.setFocusTraversal(buttonOrderBreakfastDrinks,buttonService1,buttonServingTimes,buttonServingTimes);
             
-            buttonCleaning1.requestFocus();
+            buttonService1.requestFocus();
             scene.repaint();
         }
-        if(arg0.getActionCommand().equals("buttonCleaning1")) {
-            scene.remove(buttonCleaning1);
-            scene.remove(buttonCleaning2);
-            scene.remove(buttonCleaning3);
+        if(arg0.getActionCommand().equals("buttonService1")) {
+            scene.remove(buttonService1);
+            scene.remove(buttonService2);
+            scene.remove(buttonService3);
             
             textOrder.setBackgroundMode(HVisible.BACKGROUND_FILL);
             textOrder.setBackground(new DVBColor(91, 68, 62, 255));
@@ -348,13 +348,13 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             textOrder.setTextContent("Housekeeping notified." + "\n We will be right with you with \n fresh sheets and towels.", HVisible.NORMAL_STATE);
             scene.add(textOrder);
             
-            button1.requestFocus();
+            buttonGeneralInfo.requestFocus();
             scene.repaint();
         }
-        if(arg0.getActionCommand().equals("buttonCleaning2")) {
-            scene.remove(buttonCleaning1);
-            scene.remove(buttonCleaning2);
-            scene.remove(buttonCleaning3);
+        if(arg0.getActionCommand().equals("buttonService2")) {
+            scene.remove(buttonService1);
+            scene.remove(buttonService2);
+            scene.remove(buttonService3);
             
             textOrder.setBackgroundMode(HVisible.BACKGROUND_FILL);
             textOrder.setBackground(new DVBColor(91, 68, 62, 255));
@@ -362,13 +362,13 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             textOrder.setTextContent("Housekeeping notified." + "\n We'll be right with you for \n some light cleaning", HVisible.NORMAL_STATE);
             scene.add(textOrder);
             
-            button1.requestFocus();
+            buttonGeneralInfo.requestFocus();
             scene.repaint();
         }
-        if(arg0.getActionCommand().equals("buttonCleaning3")) {
-            scene.remove(buttonCleaning1);
-            scene.remove(buttonCleaning2);
-            scene.remove(buttonCleaning3);
+        if(arg0.getActionCommand().equals("buttonService3")) {
+            scene.remove(buttonService1);
+            scene.remove(buttonService2);
+            scene.remove(buttonService3);
             
             textOrder.setBackgroundMode(HVisible.BACKGROUND_FILL);
             textOrder.setBackground(new DVBColor(91, 68, 62, 255));
@@ -376,31 +376,31 @@ public class HelloTVXlet implements Xlet, HActionListener, HBackgroundImageListe
             textOrder.setTextContent("Housekeeping notified." + "\n We'll be right with you for \n a full cleaning", HVisible.NORMAL_STATE);
             scene.add(textOrder);
             
-            button1.requestFocus();
+            buttonGeneralInfo.requestFocus();
             scene.repaint();
         }
         if(arg0.getActionCommand().equals("buttonReturn")) { 
-            button1.setBackgroundMode(HVisible.BACKGROUND_FILL);
-            button1.setBackground(Color.GREEN);
-            scene.add(button1);
+            buttonGeneralInfo.setBackgroundMode(HVisible.BACKGROUND_FILL);
+            buttonGeneralInfo.setBackground(Color.GREEN);
+            scene.add(buttonGeneralInfo);
 
-            button2.setBackgroundMode(HVisible.BACKGROUND_FILL);
-            button2.setBackground(Color.GREEN);
-            scene.add(button2);
+            buttonServingTimes.setBackgroundMode(HVisible.BACKGROUND_FILL);
+            buttonServingTimes.setBackground(Color.GREEN);
+            scene.add(buttonServingTimes);
 
-            button3.setBackgroundMode(HVisible.BACKGROUND_FILL);
-            button3.setBackground(Color.GREEN);
-            scene.add(button3);
+            buttonOrderBreakfastDrinks.setBackgroundMode(HVisible.BACKGROUND_FILL);
+            buttonOrderBreakfastDrinks.setBackground(Color.GREEN);
+            scene.add(buttonOrderBreakfastDrinks);
 
-            button4.setBackgroundMode(HVisible.BACKGROUND_FILL);
-            button4.setBackground(Color.GREEN);
-            scene.add(button4);
+            buttonServices.setBackgroundMode(HVisible.BACKGROUND_FILL);
+            buttonServices.setBackground(Color.GREEN);
+            scene.add(buttonServices);
             
             scene.remove(text2);
             scene.remove(text3);
             scene.remove(buttonReturn);
             
-            button1.requestFocus();
+            buttonGeneralInfo.requestFocus();
             scene.repaint();
         }
         
